@@ -13,6 +13,60 @@ This project implements a RESTful API for managing resources on a Martian space 
 
 The system is built with a Flask backend API and MongoDB database, with a simple modern UI for user interaction.
 
+## 🚀 Quick Start with Docker
+
+You can run this application directly from Docker Hub without cloning the repository.
+
+### Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/) installed on your machine
+
+### Running the Application
+
+1. Pull the Docker image from Docker Hub:
+   ```
+   docker pull dionysis11/martian-crud:latest
+   ```
+
+2. Run the container:
+   ```
+   docker run -p 5000:5000 dionysis11/martian-crud:latest
+   ```
+
+3. Access the application in your browser:
+   - Open http://localhost:5000
+
+### API Endpoints
+
+The application exposes the following REST endpoints:
+
+- **GET /api/resources** - List all resources
+- **GET /api/resources/{id}** - Get a specific resource
+- **POST /api/resources** - Create a new resource
+  ```json
+  {
+    "name": "Water",
+    "quantity": 500,
+    "description": "Drinking water supply"
+  }
+  ```
+- **PUT /api/resources/{id}** - Update a resource
+- **DELETE /api/resources/{id}** - Delete a resource
+
+### Example API Usage
+
+Using curl to create a new resource:
+```bash
+curl -X POST http://localhost:5000/api/resources \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Oxygen", "quantity": 100, "description": "Breathing air supply"}'
+```
+
+Using curl to get all resources:
+```bash
+curl http://localhost:5000/api/resources
+```
+
 ## 🛠️ Technology Stack
 
 - Backend: Flask (Python)
