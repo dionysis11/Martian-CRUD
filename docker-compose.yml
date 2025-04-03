@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  # MongoDB service
+  mongo:
+    image: mongo:5.0
+    container_name: martian-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_DATABASE=martian_resources
+    networks:
+      - martian-network
+
+  # Flask API service
+  api:
+    build: .
+    container_name: martian-api
+    ports:
+      - "5001:5000"
+    environment:
+      - FLASK_ENV=development
+      - MONGO_URI=mongodb://mongo:27017/martian_resources
+    depends_on:
+      - mongo
+    restart: unless-stopped
+    networks:
+      - martian-network
+
+networks:
+  martian-network:
+    driver: bridge
+
+volumes:
+  mongo-data: 
