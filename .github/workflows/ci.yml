@@ -64,4 +64,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAMEREMOVED }}/martian-crud:latest 
+        tags: ${{ secrets.DOCKER_HUB_USERNAMEREMOVED1 }}/martian-crud:latest 
