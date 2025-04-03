@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from flask_pymongo import PyMongo
 from config import config
 
-# Initialize extensions that will be bound to the app later
+# Initialize extensions that will be bound to the app later.
 mongo = PyMongo()
 
 def create_app(test_config=None, environ=None):
