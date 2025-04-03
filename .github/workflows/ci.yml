@@ -56,12 +56,12 @@ jobs:
     - name: Login to Docker Hub
       uses: docker/login-action@v2
       with:
-        username: ${{ secrets.DOCKER_HUB_USERNAMEREMOVED }}
-        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKENREMOVED }}
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
     
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAMEREMOVED }}/martian-crud:latest 
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/martian-crud:latest 
