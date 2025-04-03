@@ -1,9 +1,13 @@
+"""Test fixtures for the Flask application."""
 import pytest
-from app import create_app, mongo
 
 @pytest.fixture
 def app():
     """Create and configure a Flask app for testing."""
+    # Import app inside the fixture to avoid circular imports
+    # pylint: disable=import-outside-toplevel
+    from app import create_app, mongo
+    
     app = create_app({
         'TESTING': True,
         'MONGO_URI': 'mongodb://localhost:27017/test_martian_resources'

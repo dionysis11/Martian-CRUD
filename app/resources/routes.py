@@ -1,5 +1,8 @@
+"""API routes for resource management."""
 from flask import jsonify, request
 from bson.objectid import ObjectId
+
+# Import from the parent package
 from app.resources import bp
 from app import mongo
 
